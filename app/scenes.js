@@ -15,7 +15,7 @@ const palette = {
   sage: 0x97ad86,
   surface: 0xe9e1da
 };
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reducedMotion = false;
 const scenes = [];
 
 function addLights(scene, dark, kind) {

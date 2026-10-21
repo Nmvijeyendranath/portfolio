@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141212">
+  <meta name="description"
+    content="Vijeyendra — Artificial Intelligence and Data Science student exploring applied AI, analytics, and thoughtful product engineering.">
+  <title>Vijeyendra — AI &amp; Data Science</title>
+  <link rel="icon" type="image/svg+xml" href="./mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,800;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+  <script src="./vendor/ScrollTrigger.min.js"></script>
+  <script src="./vendor/lenis.min.js"></script>
+  <!-- Global CDN fallback in case of local asset blocking -->
+  <script>
+    if (!window.gsap) document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"><\/script>');
+    if (!window.ScrollTrigger) document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"><\/script>');
+    if (!window.Lenis) document.write('<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"><\/script>');
+  </script>
+  <script type="module" src="./main.js"></script>
+  <script type="module" src="./ambient.js"></script>
+</head>
+
+<body data-loading>
+
+  <!-- ══════════ BOOT SEQUENCE ══════════ -->
+  <div class="boot" id="boot" role="status" aria-label="Loading portfolio">
+    <div class="boot-grid" aria-hidden="true"></div>
+    <div class="boot-core">
+      <div class="boot-topline mono"><span>NMV — PORTFOLIO SYSTEM</span><span>12°58' N / 77°35' E</span></div>
+      <div class="boot-name" aria-hidden="true">
+        <span class="boot-letter">V</span><span class="boot-letter">I</span><span class="boot-letter">J</span><span
+          class="boot-letter">E</span><span class="boot-letter">Y</span><span class="boot-letter">E</span><span
+          class="boot-letter">N</span><span class="boot-letter">D</span><span class="boot-letter">R</span><span
+          class="boot-letter">A</span><span class="boot-letter boot-period">.</span>
+      </div>
+      <div class="boot-bar" aria-hidden="true"><span id="boot-fill"></span></div>
+      <div class="boot-meta mono"><span id="boot-status">INITIALIZING FIELD</span><span><b id="boot-count">000</b> /
+          100</span></div>
+    </div>
+    <span class="boot-hint mono" aria-hidden="true">SIGNAL ACQUISITION IN PROGRESS</span>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><i></i><b></b></div>
+  <div class="scroll-line" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <canvas class="ambient-field-canvas" id="ambient-particles" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#about" aria-label="Vijeyendra, about">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">VIJEYENDRA<span class="brand-period">.</span></span>
+    </a>
+    <div class="header-meta mono"><span class="status-dot"></span><span>OPEN TO OPPORTUNITIES</span></div>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav"
+      aria-label="Open navigation"><span></span><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="#about">ABOUT <sup>01</sup></a><a href="#work">WORK <sup>02</sup></a><a href="#skills">TOOLKIT
+        <sup>03</sup></a><a href="#profiles-contact">PROFILE &amp; CONTACT <sup>04</sup></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ══════════ 00 / SIGNAL ORIGIN ══════════ -->
+    <section class="hero about-landing" id="about" aria-labelledby="hero-title">
+      <div class="hero-scene" id="hero-scene" aria-hidden="true">
+        <canvas class="scene-canvas" data-scene="hero" id="hero-canvas"></canvas>
+      </div>
+      <div class="hero-inner section-wrap">
+        <div class="hero-topline mono"><span>PORTFOLIO / 2026</span><span>BENGALURU, INDIA <span
+              class="crosshair">✳</span></span></div>
+        <p class="eyebrow mono"><span class="eyebrow-line"></span>ABOUT / CURIOUS BY NATURE. PRECISE BY DESIGN.</p>
+        <div class="hero-title-block">
+          <h1 id="hero-title" class="hero-title">
+            <span class="ht-row ht-row-nm">
+              <span class="ht-nm">NM</span>
+              <div class="hero-portrait hero-portrait-inline" id="hero-portrait" role="img"
+                aria-label="Vijeyendra portrait inside 3D rotating grid globe with orbiting particles">
+                <div class="portrait-globe-wrap">
+                  <canvas class="portrait-orbit-canvas" data-scene="portrait" id="portrait-canvas"
+                    aria-hidden="true"></canvas>
+                </div>
+              </div>
+            </span>
+            <span class="ht-row ht-row-two"><span class="ht-vij">VIJEYENDRANATH</span><span
+                class="title-index mono">01 — 04</span></span>
+          </h1>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="hero-intro-block">
+            <p class="hero-intro">I’m <strong>Vijeyendra</strong> — an AI &amp; Data Science student exploring how
+              intelligent systems and meaningful data can solve real-world problems.</p>
+            <nav class="hero-social-links" aria-label="Social profiles">
+              <a href="https://github.com/Nmvijeyendranath" target="_blank" rel="noopener noreferrer"><span
+                  aria-hidden="true">GH</span> GITHUB PROFILE ↗</a>
+              <a href="https://www.linkedin.com/in/vijeyendranath/" target="_blank" rel="noopener noreferrer"><span
+                  aria-hidden="true">in</span> LINKEDIN PROFILE ↗</a>
+            </nav>
+          </div>
+          <div class="hero-portrait-placeholder"></div>
+          <a class="circle-link" href="#work" aria-label="Scroll to selected work"><span>MEET THE<br>MAKER</span><b
+              aria-hidden="true">↓</b></a>
+        </div>
+        <div class="hero-footer mono">
+          <span>ARTIFICIAL INTELLIGENCE</span><span>APPLIED AI</span><span>DATA ANALYTICS</span>
+          <span class="hero-scroll-hint"><span class="pointer-hint">DRAG THE SCULPTURE · </span>SCROLL TO EXPLORE&nbsp;
+            ↘</span>
+        </div>
+      </div>
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track" data-marquee><span>INTELLIGENT SYSTEMS <i>✳</i> MEANINGFUL DATA <i>✳</i> REAL-WORLD
+            PROBLEMS <i>✳</i> INTELLIGENT SYSTEMS <i>✳</i> MEANINGFUL DATA <i>✳</i> REAL-WORLD PROBLEMS <i>✳</i> </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 01 / POINT OF VIEW ══════════ -->
+    <section class="manifesto section-wrap" aria-label="Introduction">
+      <div class="section-label mono reveal"><span>01 / POINT OF VIEW</span><span>THE SHORT VERSION</span></div>
+      <p class="manifesto-copy" data-words>The interesting part of technology is what it <em>makes possible.</em> I
+        explore how data, AI, and thoughtful engineering can turn a good question into something useful.</p>
+      <div class="manifesto-caption mono reveal"><span>LEARNING THROUGH MAKING</span><span>ONE ITERATION AT A TIME&nbsp;
+          ↗</span></div>
+    </section>
+
+    <!-- ══════════ 02 / SELECTED WORK ══════════ -->
+    <section class="work-section" id="work">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <div class="section-label mono"><span>02 / SELECTED WORK</span><span>IDEAS, EXPERIMENTS &amp; BUILDS</span>
+          </div>
+          <h2>Making sense<br>of <span class="serif-accent">complexity.</span></h2>
+          <p class="section-deck">A selection of projects and explorations across applied AI, data, and privacy-first
+            systems. Status and outcomes are stated as shared; unverified metrics are intentionally left out. Every
+            project below is a small interactive world — touch, drag, and run the demonstrations.</p>
+        </div>
+
+        <!-- Featured: ProofPass -->
+        <article class="featured-project" id="proofpass">
+          <div class="feature-head mono reveal"><span>FEATURED CASE STUDY <span
+                class="feature-star">✳</span></span><span>01 — 06 / WEB3 · APPLIED AI</span></div>
+          <div class="feature-stage reveal">
+            <canvas class="scene-canvas" data-scene="proof" aria-hidden="true"></canvas>
+          </div>
+          <div class="feature-main">
+            <div class="feature-title-wrap">
+              <p class="feature-kicker mono">PRIVACY-FIRST VERIFICATION</p>
+              <h3 class="feature-title" data-split>ProofPass</h3>
+              <p class="feature-lede">A verification engine concept connecting authenticated web data, structured AI
+                extraction, and on-chain claim records.</p>
+            </div>
+          </div>
+
+          <!-- Interactive verification pipeline -->
+          <div class="pipeline reveal" id="pipeline">
+            <div class="pipeline-head mono"><span>INTERACTIVE WALKTHROUGH</span><span>ARCHITECTURE TRACE — SELECT A
+                STAGE, OR RUN A PROOF</span></div>
+            <div class="pipeline-track" role="tablist" aria-label="ProofPass verification stages">
+              <button class="pipe-node is-active" type="button" role="tab" aria-selected="true"
+                data-stage="0"><i>01</i><span>SOURCE SESSION</span></button>
+              <span class="pipe-link" aria-hidden="true"></span>
+              <button class="pipe-node" type="button" role="tab" aria-selected="false"
+                data-stage="1"><i>02</i><span>ZKTLS PROOF</span></button>
+              <span class="pipe-link" aria-hidden="true"></span>
+              <button class="pipe-node" type="button" role="tab" aria-selected="false" data-stage="2"><i>03</i><span>AI
+                  EXTRACTION</span></button>
+              <span class="pipe-link" aria-hidden="true"></span>
+              <button class="pipe-node" type="button" role="tab" aria-selected="false"
+                data-stage="3"><i>04</i><span>CLAIM HASH</span></button>
+              <span class="pipe-link" aria-hidden="true"></span>
+              <button class="pipe-node" type="button" role="tab" aria-selected="false"
+                data-stage="4"><i>05</i><span>VERIFIER</span></button>
+            </div>
+            <div class="pipeline-console">
+              <div class="pipe-readout" id="pipe-readout" aria-live="polite">
+                <span class="pipe-stage-name mono" id="pipe-stage-name">STAGE 01 / SOURCE SESSION</span>
+                <p id="pipe-stage-copy">A user authenticates with a real web source — Reclaim-backed session proofs let
+                  the system reference what the source actually showed, without handing over the whole document.</p>
+              </div>
+              <div class="pipe-visual" aria-hidden="true">
+                <svg id="pipe-svg" viewBox="0 0 560 150" preserveAspectRatio="xMidYMid meet">
+                  <path class="pipe-path" d="M20 110 C 110 40, 190 130, 280 75 S 450 20, 540 60" fill="none" />
+                  <g class="pipe-dots">
+                    <circle cx="20" cy="110" r="4.5" />
+                    <circle cx="150" cy="86" r="4.5" />
+                    <circle cx="280" cy="75" r="4.5" />
+                    <circle cx="415" cy="38" r="4.5" />
+                    <circle cx="540" cy="60" r="4.5" />
+                  </g>
+                  <circle class="pipe-packet" id="pipe-packet" r="6" cx="20" cy="110" />
+                </svg>
+                <button class="pipe-run mono" id="pipe-run" type="button">RUN A PROOF TRACE ↗</button>
+              </div>
+            </div>
+            <p class="pipe-note mono">INTERACTIVE ARCHITECTURE WALKTHROUGH — NOT A LIVE VERIFICATION. AI EXTRACTION
+              ALONE IS NOT PROOF THAT A CLAIM IS TRUE.</p>
+          </div>
+
+          <div class="feature-summary reveal">
+            <div><span class="summary-label mono">THE CHALLENGE</span>
+              <p>Prove a specific credential without handing over an entire document or adding a custom API for every
+                data source.</p>
+            </div>
+            <div><span class="summary-label mono">THE APPROACH</span>
+              <p>Explore Reclaim-backed web-session proofs, structured claim extraction, keccak256 claim hashes in the
+                MST registry, and a recruiter/auditor portal that queries verifySkill() for supported claims.</p>
+            </div>
+            <div><span class="summary-label mono">MY TAKEAWAY</span>
+              <p>Trust depends on the whole chain: the source proof, claim validation, contract logic, and what a
+                verifier actually checks.</p>
+            </div>
+          </div>
+          <div class="feature-meta reveal">
+            <div class="meta-block"><span class="summary-label mono">REPORTED RECOGNITION</span><strong>Top 7 <span>·
+                  self-reported</span></strong></div>
+            <div class="meta-block"><span class="summary-label mono">SPRINT</span><strong>24 hours <span>· September
+                  2026</span></strong></div>
+            <div class="meta-block"><span class="summary-label mono">TEAM</span><strong>3 collaborators</strong></div>
+            <div class="meta-block"><span class="summary-label mono">ROLE</span><strong>AI · backend · Web3</strong>
+            </div>
+          </div>
+          <div class="tech-ribbon mono reveal"><span>RECLAIM / ZKTLS</span><span>NODE.JS / FASTIFY</span><span>GROQ /
+              LLAMA 3.1 8B INSTANT</span><span>SOLIDITY / HARDHAT</span><span>ETHERS.JS / KECCAK256</span><span>MST
+              TESTNET</span></div>
+          <p class="accuracy-note reveal"><span aria-hidden="true">i</span> Architecture summarized from the project
+            description. AI extraction alone is not proof that a claim is true; verification guarantees depend on the
+            implementation and source-proof validation. No live demo or independent verification is available; the
+            repository is linked below.</p>
+          <div class="feature-repo reveal"><a href="https://github.com/Nmvijeyendranath/proofpass" target="_blank"
+              rel="noreferrer">VIEW PROOFPASS REPOSITORY <span aria-hidden="true">↗</span></a><span class="mono">SOURCE
+              CODE / PUBLIC REPO</span></div>
+        </article>
+
+        <div class="projects-intro reveal"><span class="mono">02 / OTHER PROJECTS</span><span class="mono">FIELD NOTES ·
+            SELECTED BUILDS &amp; EXPLORATIONS</span></div>
+        <div class="project-discovery reveal">
+          <div class="project-filters" role="group" aria-label="Filter projects by focus">
+            <button class="project-filter is-active" type="button" data-filter="all" aria-pressed="true">ALL
+              <span>05</span></button>
+            <button class="project-filter" type="button" data-filter="ai" aria-pressed="false">APPLIED AI
+              <span>03</span></button>
+            <button class="project-filter" type="button" data-filter="analytics" aria-pressed="false">ANALYTICS
+              <span>01</span></button>
+            <button class="project-filter" type="button" data-filter="coursework" aria-pressed="false">COURSEWORK
+              <span>01</span></button>
+          </div>
+          <p class="project-filter-status mono" id="project-filter-status" role="status" aria-live="polite">5 projects /
+            explore by focus</p>
+        </div>
+        <div class="project-list" id="project-list" aria-label="Project demonstrations"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ 03 / THE THINKING ══════════ -->
+    <section class="about-section section-wrap" id="about-story">
+      <div class="section-label mono reveal"><span>03 / THE THINKING</span><span>ABOUT &amp; EDUCATION</span></div>
+      <div class="about-layout">
+        <div class="about-left">
+          <h2 class="about-head reveal">Curiosity<br>with a <em>purpose.</em></h2>
+
+        </div>
+        <div class="about-content reveal">
+          <p class="about-lede">I’m studying Artificial Intelligence and Data Science at B.M.S. College of Engineering,
+            Bengaluru. I like looking beyond the model or interface to understand the data, the system, the person using
+            it, and the value it should create.</p>
+          <p>My work and learning so far move between machine learning, computer vision, analytics, product development,
+            and privacy-focused Web3. I learn best by making things, examining what they can—and cannot—claim, and
+            iterating from there.</p>
+          <p>I’m interested in data science, applied AI, LLM applications, analytics, and product-minded technology
+            roles where analytical thinking can help solve practical problems.</p>
+          <div class="education-card"><span class="mono">EDUCATION / 01</span>
+            <div><strong>B.M.S. College of Engineering</strong><span>Artificial Intelligence &amp; Data
+                Science</span><span>Bengaluru, India · 5th semester as of Oct 2026</span></div><b
+              aria-hidden="true">↗</b>
+          </div>
+          <div class="coursework"><span class="mono">CURRENTLY STUDYING</span>
+            <div class="course-tags"><span>Deep Learning</span><span>Big Data Analysis</span><span>Time Series
+                Analysis</span><span>ML Optimization</span><span>Social Network Analysis</span><span>R
+                Programming</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="direction-strip reveal"><span class="mono">WHERE I’M HEADED</span>
+        <p>Data &amp; business analysis <i>·</i> Data science &amp; applied AI <i>·</i> Product &amp; strategy</p><span
+          class="direction-arrow" aria-hidden="true">↘</span>
+      </div>
+    </section>
+
+    <!-- ══════════ 04 / THE TOOLKIT ══════════ -->
+    <section class="skills-section section-wrap" id="skills">
+      <div class="section-heading reveal">
+        <div class="section-label mono"><span>04 / THE TOOLKIT</span><span>TOOLS I’VE WORKED WITH OR EXPLORED</span>
+        </div>
+        <h2>Built on<br><span class="serif-accent">curiosity.</span></h2>
+        <p class="section-deck">A working inventory from coursework and project explorations—not a claim of equal
+          proficiency in every tool.</p>
+      </div>
+      <div class="data-visual reveal">
+        <div class="data-visual-copy">
+          <span class="mono">FORM / SIGNAL / STRUCTURE</span>
+          <h3>Patterns,<br><em>made visible.</em></h3>
+          <p>Interactive 3D graph exploration demonstrating neural optimization landscapes, Fourier signal
+            decomposition, and latent embeddings. Select a graph mode below or drag to inspect data tensors.</p>
+
+          <div class="graph-selector-bar mono" role="tablist" aria-label="Interactive Graph Types">
+            <button class="graph-tab-btn active" data-graph="loss" type="button" role="tab" aria-selected="true">
+              <span class="tab-indicator">●</span> 01 / LOSS GRADIENT
+            </button>
+            <button class="graph-tab-btn" data-graph="fourier" type="button" role="tab" aria-selected="false">
+              <span class="tab-indicator">○</span> 02 / FOURIER HARMONICS
+            </button>
+            <button class="graph-tab-btn" data-graph="clusters" type="button" role="tab" aria-selected="false">
+              <span class="tab-indicator">○</span> 03 / LATENT CLUSTERS
+            </button>
+            <button class="graph-tab-btn" data-graph="density" type="button" role="tab" aria-selected="false">
+              <span class="tab-indicator">○</span> 04 / TENSOR DENSITY
+            </button>
+          </div>
+
+          <div class="graph-telemetry mono">
+            <div class="tel-row"><span class="tel-label">TENSOR MODE:</span> <strong class="tel-val"
+                id="graph-title-label">NEURAL LOSS GRADIENT</strong></div>
+            <div class="tel-row"><span class="tel-label">DIMENSIONALITY:</span> <strong class="tel-val"
+                id="graph-dims-label">24 NODES · 3D MANIFOLD</strong></div>
+            <div class="tel-row"><span class="tel-label">SAMPLING METRIC:</span> <strong class="tel-val"
+                id="graph-stat-label">LOSS: 0.038 · CONVERGENCE: 99.4%</strong></div>
+            <div class="tel-row"><span class="tel-label">SYSTEM STATE:</span> <strong class="tel-val live-pulse"><span
+                  class="live-dot"></span> REAL-TIME 3D INTERACTIVE</strong></div>
+          </div>
+        </div>
+        <div class="data-visual-stage">
+          <canvas class="scene-canvas" data-scene="signal" aria-label="Interactive 3D graph visualization"></canvas>
+          <div class="stage-interactive-overlay mono">
+            <span class="data-stage-label mono">DATA STUDY / 03 · DRAG TO ROTATE GRAPH</span>
+            <div class="graph-cursor-readout" id="graph-cursor-readout">HOVER OVER BARS TO PROBE TENSOR VALUES</div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-row reveal"><span class="skill-number mono">01</span>
+          <h3>AI &amp; data</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>R</span><span>SQL</span><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>TensorFlow</span><span>Keras</span><span>Transfer
+              learning</span><span>Random Forest</span>
+          </div><span class="skill-plus">+</span>
+        </div>
+        <div class="skill-row reveal"><span class="skill-number mono">02</span>
+          <h3>Analytics</h3>
+          <div class="skill-tags"><span>Tableau</span><span>Power
+              BI</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span><span>Exploratory
+              analysis</span><span>Data storytelling</span></div><span class="skill-plus">+</span>
+        </div>
+        <div class="skill-row reveal"><span class="skill-number mono">03</span>
+          <h3>Web &amp; backend</h3>
+          <div class="skill-tags">
+            <span>React</span><span>TypeScript</span><span>JavaScript</span><span>Node.js</span><span>Fastify</span><span>Flask</span><span>REST
+              APIs</span><span>HTML / CSS</span>
+          </div><span class="skill-plus">+</span>
+        </div>
+        <div class="skill-row reveal"><span class="skill-number mono">04</span>
+          <h3>Web3 &amp; crypto</h3>
+          <div class="skill-tags"><span>Solidity</span><span>Hardhat</span><span>Ethers.js</span><span>Reclaim
+              Protocol</span><span>zkTLS concepts</span><span>keccak256</span><span>Verifiable credentials</span></div>
+          <span class="skill-plus">+</span>
+        </div>
+        <div class="skill-row reveal"><span class="skill-number mono">05</span>
+          <h3>Tools &amp; systems</h3>
+          <div class="skill-tags"><span>Git / GitHub</span><span>MongoDB</span><span>MySQL</span><span>Apache
+              Cassandra</span><span>Groq API</span><span>Gemini API</span><span>Structured prompting</span></div><span
+            class="skill-plus">+</span>
+        </div>
+      </div>
+      <p class="skills-footnote mono reveal">THE TOOL IS ONLY AS GOOD AS THE QUESTION YOU ASK OF IT.</p>
+    </section>
+
+    <!-- ══════════ 05 / RECOGNITION ══════════ -->
+    <section class="recognition-section" id="recognition">
+      <div class="recognition-pin section-wrap">
+        <div class="recognition-orbit" aria-hidden="true">
+          <div class="recognition-ring"></div>
+          <div class="recognition-ring ring-two"></div>
+          <div class="recognition-dot"></div><span>PP</span>
+        </div>
+        <div class="recognition-copy reveal">
+          <span class="mono">05 / A MOMENT WORTH NOTING</span>
+          <h2>One sprint.<br><em>One big leap.</em></h2>
+          <p>ProofPass was built during a 24-hour hackathon sprint in September 2026. The team reports a Top 7 finish,
+            with prize money, a medal, and ecosystem tokens. Event name and official results were not supplied.</p>
+          <div class="recognition-sign mono"><span>NM VIJEYENDRANATH</span><span>WITH BHUVAN TEJA PONAKALA &amp;
+              BAVVISETTI MAHESWAR</span></div>
+        </div>
+        <span class="recognition-number" aria-hidden="true">TOP<br><b>07</b></span>
+      </div>
+    </section>
+
+    <!-- ══════════ 04 / PROFILES & CONTACT (MERGED UNIFIED SECTION) ══════════ -->
+    <div id="profiles"></div>
+    <div id="contact"></div>
+    <section class="connect-section" id="profiles-contact" aria-labelledby="connect-title">
+      <div class="connect-3d-stage" aria-hidden="true">
+        <canvas class="scene-canvas" data-scene="connect" id="connect-canvas"></canvas>
+      </div>
+      <div class="section-wrap connect-wrap">
+        <div class="section-label mono reveal"><span>04 / CONNECT</span><span>EXACT PROFILES + GET IN TOUCH</span></div>
+        <div class="connect-heading reveal">
+          <h2 id="connect-title">Verified profiles<br>&amp; <span class="serif-accent">let’s connect.</span></h2>
+          <p class="section-deck">Explore my verified public GitHub and LinkedIn profiles below, or reach out directly
+            for applied AI, analytics, or engineering collaborations.</p>
+        </div>
+
+        <!-- Exact Public Profile Cards -->
+        <div class="exact-profiles-grid" aria-label="Official public profiles">
+          <!-- GITHUB OFFICIAL PROFILE CARD -->
+          <article class="official-profile-card github-official-card reveal" data-tilt>
+            <div class="official-card-banner github-banner">
+              <div class="banner-badge mono"><span>OFFICIAL GITHUB PROFILE</span><span class="verified-tick"
+                  aria-hidden="true">✓ VERIFIED</span></div>
+              <svg class="octocat-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </div>
+            <div class="official-card-body">
+              <div class="profile-header-meta">
+                <img class="profile-avatar-img" src="./assets/github-avatar.jpg" alt="GitHub Avatar of Vijeyendranath"
+                  onerror="this.src='./assets/portrait.jpg'">
+                <div>
+                  <h3 class="profile-display-name">NM Vijeyendranath</h3>
+                  <a class="profile-username mono" href="https://github.com/Nmvijeyendranath" target="_blank"
+                    rel="noopener noreferrer">@Nmvijeyendranath ↗</a>
+                </div>
+              </div>
+              <p class="profile-bio-text">Artificial Intelligence &amp; Data Science student exploring applied AI, deep
+                learning, analytics, and Web3 architectures.</p>
+              <div class="profile-chips mono">
+                <span>📍 BENGALURU, INDIA</span>
+                <span>🎓 BMSCE / AI &amp; DS</span>
+                <span>✳ 7+ REPOSITORIES</span>
+              </div>
+              <div class="github-repos-preview">
+                <span class="mono preview-label">FEATURED REPOSITORIES</span>
+                <div class="repo-preview-list">
+                  <a href="https://github.com/Nmvijeyendranath/proofpass" target="_blank" rel="noopener noreferrer"
+                    class="repo-item">
+                    <strong class="mono">proofpass</strong>
+                    <span>Privacy-first verification engine with zkTLS &amp; AI claim extraction</span>
+                  </a>
+                  <a href="https://github.com/Nmvijeyendranath/plant-disease-detection-system" target="_blank"
+                    rel="noopener noreferrer" class="repo-item">
+                    <strong class="mono">plant-disease-detection-system</strong>
+                    <span>Computer vision transfer learning with TensorFlow/Keras &amp; Flask</span>
+                  </a>
+                </div>
+              </div>
+              <a class="profile-live-btn github-live-btn" href="https://github.com/Nmvijeyendranath" target="_blank"
+                rel="noopener noreferrer">
+                <span>VISIT OFFICIAL GITHUB PROFILE</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- LINKEDIN OFFICIAL PROFILE CARD -->
+          <article class="official-profile-card linkedin-official-card reveal" data-tilt>
+            <div class="official-card-banner linkedin-banner">
+              <div class="banner-badge mono"><span>OFFICIAL LINKEDIN PROFILE</span><span class="verified-tick"
+                  aria-hidden="true">✓ VERIFIED</span></div>
+              <svg class="linkedin-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </div>
+            <div class="official-card-body">
+              <div class="profile-header-meta">
+                <div class="avatar-ring-wrap">
+                  <img class="profile-avatar-img" src="./assets/portrait.jpg" alt="LinkedIn Portrait of Vijeyendranath">
+                  <span class="online-status-dot" aria-hidden="true"></span>
+                </div>
+                <div>
+                  <h3 class="profile-display-name">Vijeyendranath <span class="in-verified-badge"
+                      aria-hidden="true">in</span></h3>
+                  <a class="profile-username mono" href="https://www.linkedin.com/in/vijeyendranath/" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/vijeyendranath ↗</a>
+                </div>
+              </div>
+              <p class="profile-bio-text">Student at B.M.S. College of Engineering | Artificial Intelligence &amp; Data
+                Science | Applied Machine Learning &amp; Product Engineering.</p>
+              <div class="profile-chips mono">
+                <span>📍 BENGALURU, KARNATAKA</span>
+                <span>💼 OPEN TO OPPORTUNITIES</span>
+                <span>🎓 BMSCE OCT 2026</span>
+              </div>
+              <div class="linkedin-experience-preview">
+                <span class="mono preview-label">EDUCATION &amp; FOCUS</span>
+                <div class="exp-item">
+                  <div class="exp-icon" aria-hidden="true">🎓</div>
+                  <div>
+                    <strong>B.M.S. College of Engineering</strong>
+                    <p>B.E. in Artificial Intelligence &amp; Data Science (5th Semester as of Oct 2026)</p>
+                  </div>
+                </div>
+                <div class="exp-item">
+                  <div class="exp-icon" aria-hidden="true">🏆</div>
+                  <div>
+                    <strong>ProofPass — Hackathon Top 7</strong>
+                    <p>AI Extraction, zkTLS Web Proofs &amp; Smart Contract Verification</p>
+                  </div>
+                </div>
+              </div>
+              <a class="profile-live-btn linkedin-live-btn" href="https://www.linkedin.com/in/vijeyendranath/"
+                target="_blank" rel="noopener noreferrer">
+                <span>VISIT OFFICIAL LINKEDIN PROFILE</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- ══════════ CERTIFICATIONS BLOCK ══════════ -->
+        <div class="credentials-block" id="certifications">
+          <div class="section-label mono reveal"><span>CERTIFICATIONS &amp; CONTINUOUS LEARNING</span><span>ACADEMIC
+              &amp; INDUSTRY</span></div>
+          <div class="credentials-card reveal">
+            <div>
+              <span class="mono credentials-kicker">KNOWLEDGE BASE IN EXPANSION</span>
+              <h2>Learning,<br><em>documented.</em></h2>
+              <p>Coursework in Deep Learning, ML Optimization, Big Data Analysis, and Social Network Analytics at BMSCE.
+                Ready for upcoming professional credentials to be added.</p>
+            </div>
+            <span class="credentials-count mono"><b>06+</b>CORE DOMAINS</span>
+          </div>
+        </div>
+
+        <!-- DIRECT REACH OUT PORTAL -->
+        <div class="direct-contact-box reveal">
+          <div class="section-label mono"><span>SAY HELLO · LET'S COLLABORATE</span><span>ONE PLACE TO CONNECT</span>
+          </div>
+          <div class="direct-contact-content">
+            <p class="mono contact-kicker">OPEN TO APPLIED AI · DATA SCIENCE · INTERNSHIPS · RESEARCH</p>
+            <h3>Let’s make<br><em>something</em><br>matter.</h3>
+            <div class="contact-action-row">
+              <a class="contact-cta" id="contact-cta" href="mailto:vijeyendranath@gmail.com">
+                <span>vijeyendranath@gmail.com</span><b aria-hidden="true">↗</b>
+              </a>
+              <button class="copy-email-btn mono" id="copy-email-btn" type="button"
+                aria-label="Copy email address to clipboard">
+                <span id="copy-email-text">COPY EMAIL 📋</span>
+              </button>
+            </div>
+            <div class="contact-links">
+              <a href="https://github.com/Nmvijeyendranath" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>
+              <a href="https://www.linkedin.com/in/vijeyendranath/" target="_blank" rel="noreferrer">LINKEDIN
+                <span>↗</span></a>
+              <a href="mailto:vijeyendranath@gmail.com">DIRECT EMAIL <span>↗</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer section-wrap">
+    <a class="brand" href="#about"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span
+        class="brand-name">VIJEYENDRA<span class="brand-period">.</span></span></a>
+    <span class="footer-note mono">THINK CLEARLY. BUILD THOUGHTFULLY.</span>
+    <a class="back-top mono" href="#top">BACK TO TOP ↑</a>
+    <span class="copyright mono">© 2026 · BUILT WITH INTENTION</span>
+  </footer>
+</body>
+
+</html>

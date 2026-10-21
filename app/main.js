@@ -1,11 +1,11 @@
 import { initialize3DScenes } from './scenes.js';
 import { initDemos } from './demos.js';
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reducedMotion = false;
 const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
 const Lenis = window.Lenis;
-const enhancedMotion = Boolean(gsap && ScrollTrigger && Lenis && !reducedMotion);
+const enhancedMotion = Boolean(gsap && ScrollTrigger && Lenis);
 
 /* ── build interactive project worlds first (DOM must exist) ── */
 initDemos();

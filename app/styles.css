@@ -446,14 +446,8 @@ body>.ambient-field-canvas{position:fixed;inset:0;z-index:0;display:block;width:
 }
 @media(hover:none){.pointer-hint{display:none}}
 
-/* ══════════ REDUCED MOTION ══════════ */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .reveal,.project-item,[data-split] .w>i{opacity:1!important;transform:none!important}
-  .marquee-track{transform:none!important}
-  .portrait-scan{display:none}
-  body>.ambient-field-canvas{opacity:.16}
-}
+/* ══════════ MOTION PREFERENCES ══════════ */
+/* Keep fluid typography and hardware-accelerated animations active across devices */
 
 
 /* ═══════════════════════════════════════════════════════════════
