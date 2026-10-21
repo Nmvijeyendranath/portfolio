@@ -1,4 +1,4 @@
-import * as THREE from './vendor/three.module.min.js';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js';
 
 /* ═══════════════════════════════════════════════════════════════
    Scene system — hero sculpture, proof network, signal study.
