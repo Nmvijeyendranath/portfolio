@@ -18,8 +18,8 @@
   font-family:var(--sans); scroll-behavior:smooth; scroll-padding-top:80px;
 }
 *{box-sizing:border-box}
-html{background:var(--ink);scrollbar-color:#8C827A var(--ink)}
-body{margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;overflow-x:hidden}
+html{background:#11100F;scrollbar-color:#8C827A #11100F}
+body{margin:0;background:#11100F;color:var(--ink);font-size:15px;line-height:1.65;overflow-x:hidden}
 body[data-loading]{overflow:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
@@ -983,6 +983,14 @@ body {
   pointer-events: none;
   opacity: 0.85;
   z-index: 0;
+  background: transparent !important;
+  overflow: hidden;
+}
+.connect-3d-stage canvas {
+  background: transparent !important;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .connect-wrap {
   position: relative;

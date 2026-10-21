@@ -211,8 +211,8 @@ function setUpShowcaseScrollMotion() {
     rotateY: 360, rotateZ: 20, ease: 'none',
     scrollTrigger: { trigger: '.recognition-section', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
   });
-  gsap.fromTo('.connect-section .exact-profiles-grid', { y: 26, rotateX: 2, transformPerspective: 1200 }, {
-    y: 0, rotateX: 0, ease: 'none',
+  gsap.fromTo('.connect-section .exact-profiles-grid', { y: 26 }, {
+    y: 0, ease: 'none',
     scrollTrigger: { trigger: '.connect-section .exact-profiles-grid', start: 'top 92%', end: 'top 58%', scrub: 0.7 }
   });
 }
