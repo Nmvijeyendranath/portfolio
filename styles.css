@@ -1538,6 +1538,7 @@ body {
   }
 }
 
+
 @media (max-width: 380px) {
   .ht-nm {
     font-size: 48px;
@@ -1547,5 +1548,171 @@ body {
   }
   .ht-vij {
     font-size: 20px;
+  }
+}
+
+/* ══════════ LAPTOP / MEDIUM SCREEN FIXES ══════════
+   These target 641px–1280px — common laptop viewport range.
+   They DO NOT override any of the mobile rules below 641px.
+   ═══════════════════════════════════════════════════ */
+
+/* ── 1280px: common laptop widths (1280×800, 1280×1024) ─────── */
+@media (min-width: 641px) and (max-width: 1280px) {
+  /* Hero title text — prevent oversized display at mid-viewport */
+  .ht-nm {
+    font-size: clamp(72px, 11vw, 140px);
+  }
+  .ht-vij {
+    font-size: clamp(34px, 5.8vw, 78px);
+    white-space: nowrap;
+  }
+
+  /* Hero portrait inline — keep proportionate on laptop */
+  .hero-portrait.hero-portrait-inline {
+    width: clamp(160px, 17vw, 240px);
+    margin-right: clamp(10px, 2.5vw, 32px);
+  }
+
+  /* Hero bottom row — collapse to single column on laptops < 900px */
+  .hero-bottom {
+    gap: clamp(20px, 3.5vw, 56px);
+  }
+
+  /* Feature title — ProofPass is wildly oversized on 1200px laptops */
+  .feature-title {
+    font-size: clamp(60px, 11vw, 130px);
+  }
+
+  /* Feature stage background canvas — reduce so it doesn't overlap text */
+  .feature-stage {
+    width: clamp(240px, 30vw, 480px);
+    opacity: 0.5;
+  }
+
+  /* Recognition large number — prevent overflow */
+  .recognition-number b {
+    font-size: clamp(90px, 14vw, 180px);
+  }
+
+  /* Manifesto copy — prevent wrapping issues */
+  .manifesto-copy {
+    font-size: clamp(26px, 3.8vw, 52px);
+  }
+
+  /* Data visual — ensure the 2-col grid doesn't squish */
+  .data-visual {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(18px, 3vw, 40px);
+    padding: 26px clamp(16px, 3vw, 36px);
+  }
+
+  /* Connect section canvas — rein in so it doesn't overflow text */
+  .connect-3d-stage {
+    width: clamp(280px, 36vw, 500px);
+    height: clamp(280px, 36vw, 500px);
+  }
+
+  /* Profile cards — maintain 2-col but with tighter gap */
+  .exact-profiles-grid {
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+
+  /* Section headings — slightly smaller on laptop */
+  .section-heading h2 {
+    font-size: clamp(44px, 7vw, 90px);
+  }
+
+  /* Lab card stages — consistent height on laptop */
+  .lab-stage {
+    min-height: 320px;
+  }
+
+  /* Feature summary grid — tighter gap */
+  .feature-summary {
+    gap: clamp(18px, 3.5vw, 46px);
+  }
+}
+
+/* ── 1100px: smaller laptops / large tablets in landscape ───── */
+@media (min-width: 641px) and (max-width: 1100px) {
+  /* Lab grid — switch to single column earlier than 1000px */
+  .lab {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .lab-stage {
+    min-height: 300px;
+  }
+
+  /* Feature summary — reduce to 2 cols */
+  .feature-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Feature meta — 2×2 grid */
+  .feature-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Pipeline console — single col */
+  .pipeline-console {
+    grid-template-columns: 1fr;
+  }
+
+  /* Data visual — single column, canvas below copy */
+  .data-visual {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+    padding-top: 26px;
+  }
+  .data-visual-stage {
+    height: 300px;
+    margin-top: 24px;
+  }
+
+  /* About layout — single column */
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Recognition number — smaller and left-align */
+  .recognition-pin {
+    grid-template-columns: 1fr;
+  }
+  .recognition-number {
+    text-align: left;
+  }
+
+  /* Header — hide meta status text, keep brand + nav */
+  .header-meta {
+    display: none;
+  }
+  .site-header {
+    grid-template-columns: auto auto;
+    gap: 16px;
+  }
+
+  /* Hero bottom — full width intro */
+  .hero-bottom {
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .circle-link {
+    display: none;
+  }
+
+  /* Profile cards — single col */
+  .exact-profiles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Smooth scroll hint: better trackpad feel at any size ───── */
+@media (pointer: fine) {
+  html {
+    scroll-behavior: auto; /* Lenis handles this, avoid double smoothing */
   }
 }

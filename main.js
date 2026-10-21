@@ -121,7 +121,27 @@ function setUpLenis() {
   if (!enhancedMotion) return null;
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
-  const lenis = new Lenis({ autoRaf: false, lerp: 0.085, smoothWheel: true, syncTouch: false, wheelMultiplier: 0.86, anchors: { offset: -88 } });
+
+  // Disable Lenis smooth scroll on pointer:fine devices (laptop/desktop mouse).
+  // Native scroll is instant and lag-free; Lenis adds interpolation delay that
+  // feels sluggish on trackpads and mouse wheels. ScrollTrigger still works via
+  // native scroll events. Mobile touch is unaffected (syncTouch was already false).
+  const isFinePinter = window.matchMedia('(pointer: fine)').matches;
+  if (isFinePinter) {
+    // Still register ScrollTrigger so scroll animations work
+    ScrollTrigger.refresh();
+    return null;
+  }
+
+  const lenis = new Lenis({
+    autoRaf: false,
+    lerp: 0.14,
+    smoothWheel: true,
+    syncTouch: false,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 1.6,
+    anchors: { offset: -88 }
+  });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
